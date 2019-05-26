@@ -6,7 +6,7 @@ Public Class MainForm
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         My.Settings.Save()
         Me.Text = Me.Text & " Ver: " & My.Application.Info.Version.ToString
-        'CheckUpdate()
+        CheckUpdate()
         CheckSettings()
     End Sub
     Sub CheckUpdate()

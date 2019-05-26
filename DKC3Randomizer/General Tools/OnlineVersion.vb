@@ -10,7 +10,7 @@ Public Class OnlineVersion
         MinorUpdate
         MajorUpdate
     End Enum
-    Shared PageAddress As String = "https://pozzum.github.io/AxiomRandomizer/"
+    Shared PageAddress As String = "https://pozzum.github.io/DKC3Randomizer/"
     'Dim LocalVersionSplit() As Integer = CInt(Split(LocalVersion, "."))
     Shared Sub CheckUpdate()
         Try
@@ -57,7 +57,7 @@ Public Class OnlineVersion
         End Try
     End Sub
     Shared Function GetResponse(Address As String)
-        If Not Address.Contains("pozzum.github.io/AxiomRandomizer") Then
+        If Not Address.Contains("pozzum.github.io/DKC3Randomizer") Then
             Return ""
         End If
         Dim TempBrowser As WebBrowser = New WebBrowser With {
