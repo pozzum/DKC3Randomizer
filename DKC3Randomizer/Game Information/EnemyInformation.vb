@@ -635,11 +635,15 @@
 #Region "Non-Placeable"
         FullEnemyList.Add(New EnemyClass() With {
                   .Name = "Ellie Barrel",
-                  .IDNum = New List(Of Int32)(New Int32() {&H164}),
+                  .IDNum = New List(Of Int32)(New Int32() {&H164, &H16E}),
                   .Placeable = False})
         FullEnemyList.Add(New EnemyClass() With {
                   .Name = "DK Barrel",
                   .IDNum = New List(Of Int32)(New Int32() {&H260}),
+                  .Placeable = False})
+        FullEnemyList.Add(New EnemyClass() With {
+                  .Name = "Steel Door",
+                  .IDNum = New List(Of Int32)(New Int32() {&H514, &H516, &H518, &H51A}),
                   .Placeable = False})
 #End Region
     End Sub

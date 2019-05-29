@@ -32,6 +32,9 @@ Partial Class SpoilerForm
         Me.Level = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DefaultEnemy = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NewEnemy = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NEWID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -55,13 +58,13 @@ Partial Class SpoilerForm
         'ExportLocationsToolStripMenuItem
         '
         Me.ExportLocationsToolStripMenuItem.Name = "ExportLocationsToolStripMenuItem"
-        Me.ExportLocationsToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.ExportLocationsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ExportLocationsToolStripMenuItem.Text = "Export Locations"
         '
         'ImportLocationsToolStripMenuItem
         '
         Me.ImportLocationsToolStripMenuItem.Name = "ImportLocationsToolStripMenuItem"
-        Me.ImportLocationsToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.ImportLocationsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ImportLocationsToolStripMenuItem.Text = "Import Locations"
         '
         'DataGridView1
@@ -71,7 +74,7 @@ Partial Class SpoilerForm
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Offset, Me.World, Me.Level, Me.DefaultEnemy, Me.NewEnemy})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Offset, Me.World, Me.Level, Me.DefaultEnemy, Me.NewEnemy, Me.NEWID})
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 24)
         Me.DataGridView1.Name = "DataGridView1"
@@ -114,6 +117,18 @@ Partial Class SpoilerForm
         Me.NewEnemy.ReadOnly = True
         Me.NewEnemy.Width = 89
         '
+        'NEWID
+        '
+        Me.NEWID.HeaderText = "New ID Num"
+        Me.NEWID.Name = "NEWID"
+        Me.NEWID.ReadOnly = True
+        Me.NEWID.Width = 93
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "seed.xml"
+        Me.OpenFileDialog1.Filter = "xml file|*.xml|All files|*.*"
+        '
         'SpoilerForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -142,4 +157,7 @@ Partial Class SpoilerForm
     Friend WithEvents Level As DataGridViewTextBoxColumn
     Friend WithEvents DefaultEnemy As DataGridViewTextBoxColumn
     Friend WithEvents NewEnemy As DataGridViewTextBoxColumn
+    Friend WithEvents NEWID As DataGridViewTextBoxColumn
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class

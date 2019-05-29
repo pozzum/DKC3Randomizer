@@ -147,6 +147,10 @@ Public Class MainForm
     Private Sub ButtonRandomizeRom_Click(sender As Object, e As EventArgs) Handles ButtonRandomizeRom.Click
         If Not StartRandomizer() Then Exit Sub
         If Randomizer.SaveRandoRom(TextBoxRomLocation.Text, TextBoxRandomizedRomLocation.Text) Then
+            If My.Settings.XMLLimited AndAlso My.Settings.XMLLimitCount = 0 Then
+            Else
+                XMLTools.ExportXMLFile(My.Settings.XMLSaveLocation)
+            End If
             MessageBox.Show("Rom Built")
         End If
     End Sub

@@ -29,10 +29,17 @@ Partial Class OptionsMenu
         Me.TextBoxEmulatorPath = New System.Windows.Forms.TextBox()
         Me.ButtonGetEmulatorExe = New System.Windows.Forms.Button()
         Me.GroupBoxSettingsOnLoad = New System.Windows.Forms.GroupBox()
-        Me.RadioButtonSaveSettings = New System.Windows.Forms.RadioButton()
         Me.RadioButtonDefaultSettings = New System.Windows.Forms.RadioButton()
+        Me.RadioButtonSaveSettings = New System.Windows.Forms.RadioButton()
+        Me.LabelXML = New System.Windows.Forms.Label()
+        Me.TrackBarXML = New System.Windows.Forms.TrackBar()
+        Me.CheckBoxXMLLimit = New System.Windows.Forms.CheckBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.ButtonGetSpoilerPath = New System.Windows.Forms.Button()
+        Me.TextBoxSpoilerPath = New System.Windows.Forms.TextBox()
         Me.GroupBoxSeedOnLoad.SuspendLayout()
         Me.GroupBoxSettingsOnLoad.SuspendLayout()
+        CType(Me.TrackBarXML, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBoxSeedOnLoad
@@ -103,17 +110,6 @@ Partial Class OptionsMenu
         Me.GroupBoxSettingsOnLoad.TabStop = False
         Me.GroupBoxSettingsOnLoad.Text = "Settings on Load"
         '
-        'RadioButtonSaveSettings
-        '
-        Me.RadioButtonSaveSettings.AutoSize = True
-        Me.RadioButtonSaveSettings.Location = New System.Drawing.Point(6, 19)
-        Me.RadioButtonSaveSettings.Name = "RadioButtonSaveSettings"
-        Me.RadioButtonSaveSettings.Size = New System.Drawing.Size(86, 17)
-        Me.RadioButtonSaveSettings.TabIndex = 0
-        Me.RadioButtonSaveSettings.TabStop = True
-        Me.RadioButtonSaveSettings.Text = "Last Settings"
-        Me.RadioButtonSaveSettings.UseVisualStyleBackColor = True
-        '
         'RadioButtonDefaultSettings
         '
         Me.RadioButtonDefaultSettings.AutoSize = True
@@ -125,11 +121,87 @@ Partial Class OptionsMenu
         Me.RadioButtonDefaultSettings.Text = "Default"
         Me.RadioButtonDefaultSettings.UseVisualStyleBackColor = True
         '
+        'RadioButtonSaveSettings
+        '
+        Me.RadioButtonSaveSettings.AutoSize = True
+        Me.RadioButtonSaveSettings.Location = New System.Drawing.Point(6, 19)
+        Me.RadioButtonSaveSettings.Name = "RadioButtonSaveSettings"
+        Me.RadioButtonSaveSettings.Size = New System.Drawing.Size(86, 17)
+        Me.RadioButtonSaveSettings.TabIndex = 0
+        Me.RadioButtonSaveSettings.TabStop = True
+        Me.RadioButtonSaveSettings.Text = "Last Settings"
+        Me.RadioButtonSaveSettings.UseVisualStyleBackColor = True
+        '
+        'LabelXML
+        '
+        Me.LabelXML.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelXML.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.LabelXML.Location = New System.Drawing.Point(135, 182)
+        Me.LabelXML.Name = "LabelXML"
+        Me.LabelXML.Size = New System.Drawing.Size(39, 13)
+        Me.LabelXML.TabIndex = 7
+        Me.LabelXML.Text = "0"
+        Me.LabelXML.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'TrackBarXML
+        '
+        Me.TrackBarXML.Enabled = False
+        Me.TrackBarXML.Location = New System.Drawing.Point(5, 204)
+        Me.TrackBarXML.Maximum = 100
+        Me.TrackBarXML.Name = "TrackBarXML"
+        Me.TrackBarXML.Size = New System.Drawing.Size(169, 45)
+        Me.TrackBarXML.TabIndex = 6
+        Me.TrackBarXML.TickFrequency = 10
+        '
+        'CheckBoxXMLLimit
+        '
+        Me.CheckBoxXMLLimit.AutoSize = True
+        Me.CheckBoxXMLLimit.Checked = True
+        Me.CheckBoxXMLLimit.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBoxXMLLimit.Location = New System.Drawing.Point(5, 181)
+        Me.CheckBoxXMLLimit.Name = "CheckBoxXMLLimit"
+        Me.CheckBoxXMLLimit.Size = New System.Drawing.Size(79, 17)
+        Me.CheckBoxXMLLimit.TabIndex = 5
+        Me.CheckBoxXMLLimit.Text = "Limit XMLS"
+        Me.CheckBoxXMLLimit.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(12, 139)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(95, 13)
+        Me.Label2.TabIndex = 8
+        Me.Label2.Text = "Spoiler Save Path:"
+        '
+        'ButtonGetSpoilerPath
+        '
+        Me.ButtonGetSpoilerPath.Location = New System.Drawing.Point(149, 153)
+        Me.ButtonGetSpoilerPath.Name = "ButtonGetSpoilerPath"
+        Me.ButtonGetSpoilerPath.Size = New System.Drawing.Size(25, 23)
+        Me.ButtonGetSpoilerPath.TabIndex = 10
+        Me.ButtonGetSpoilerPath.Text = "..."
+        Me.ButtonGetSpoilerPath.UseVisualStyleBackColor = True
+        '
+        'TextBoxSpoilerPath
+        '
+        Me.TextBoxSpoilerPath.Location = New System.Drawing.Point(5, 155)
+        Me.TextBoxSpoilerPath.Name = "TextBoxSpoilerPath"
+        Me.TextBoxSpoilerPath.ReadOnly = True
+        Me.TextBoxSpoilerPath.Size = New System.Drawing.Size(138, 20)
+        Me.TextBoxSpoilerPath.TabIndex = 9
+        '
         'OptionsMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(184, 161)
+        Me.ClientSize = New System.Drawing.Size(184, 241)
+        Me.Controls.Add(Me.ButtonGetSpoilerPath)
+        Me.Controls.Add(Me.TextBoxSpoilerPath)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.LabelXML)
+        Me.Controls.Add(Me.TrackBarXML)
+        Me.Controls.Add(Me.CheckBoxXMLLimit)
         Me.Controls.Add(Me.GroupBoxSettingsOnLoad)
         Me.Controls.Add(Me.ButtonGetEmulatorExe)
         Me.Controls.Add(Me.TextBoxEmulatorPath)
@@ -145,6 +217,7 @@ Partial Class OptionsMenu
         Me.GroupBoxSeedOnLoad.PerformLayout()
         Me.GroupBoxSettingsOnLoad.ResumeLayout(False)
         Me.GroupBoxSettingsOnLoad.PerformLayout()
+        CType(Me.TrackBarXML, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -159,4 +232,10 @@ Partial Class OptionsMenu
     Friend WithEvents GroupBoxSettingsOnLoad As GroupBox
     Friend WithEvents RadioButtonDefaultSettings As RadioButton
     Friend WithEvents RadioButtonSaveSettings As RadioButton
+    Friend WithEvents LabelXML As Label
+    Friend WithEvents TrackBarXML As TrackBar
+    Friend WithEvents CheckBoxXMLLimit As CheckBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents ButtonGetSpoilerPath As Button
+    Friend WithEvents TextBoxSpoilerPath As TextBox
 End Class

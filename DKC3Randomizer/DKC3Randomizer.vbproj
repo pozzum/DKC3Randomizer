@@ -113,6 +113,7 @@
     <Compile Include="SpoilerForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="XMLTools.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainForm.resx">

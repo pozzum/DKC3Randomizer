@@ -209,6 +209,42 @@ Namespace My
                 Me("DeleteMurkyEllie") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property XMLSaveLocation() As String
+            Get
+                Return CType(Me("XMLSaveLocation"),String)
+            End Get
+            Set
+                Me("XMLSaveLocation") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property XMLLimited() As Boolean
+            Get
+                Return CType(Me("XMLLimited"),Boolean)
+            End Get
+            Set
+                Me("XMLLimited") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property XMLLimitCount() As Integer
+            Get
+                Return CType(Me("XMLLimitCount"),Integer)
+            End Get
+            Set
+                Me("XMLLimitCount") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
