@@ -47,6 +47,7 @@ Partial Class MainForm
         Me.CheckBoxReduceGimmicks = New System.Windows.Forms.CheckBox()
         Me.CheckBoxDeleteBobbingEllie = New System.Windows.Forms.CheckBox()
         Me.CheckBoxDeleteSneeksinWheels = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxDeleteKoins = New System.Windows.Forms.CheckBox()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -253,11 +254,23 @@ Partial Class MainForm
         Me.ToolTip1.SetToolTip(Me.CheckBoxDeleteSneeksinWheels, "Replaces the Ellie barrel in Murkey Mill with a DK Barrel.")
         Me.CheckBoxDeleteSneeksinWheels.UseVisualStyleBackColor = True
         '
+        'CheckBoxDeleteKoins
+        '
+        Me.CheckBoxDeleteKoins.AutoSize = True
+        Me.CheckBoxDeleteKoins.Location = New System.Drawing.Point(9, 297)
+        Me.CheckBoxDeleteKoins.Name = "CheckBoxDeleteKoins"
+        Me.CheckBoxDeleteKoins.Size = New System.Drawing.Size(108, 17)
+        Me.CheckBoxDeleteKoins.TabIndex = 18
+        Me.CheckBoxDeleteKoins.Text = "Randomize Koins"
+        Me.ToolTip1.SetToolTip(Me.CheckBoxDeleteKoins, "Adds DK Koin Sheild Enemies " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "to the randomizer pools.")
+        Me.CheckBoxDeleteKoins.UseVisualStyleBackColor = True
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(184, 296)
+        Me.ClientSize = New System.Drawing.Size(184, 316)
+        Me.Controls.Add(Me.CheckBoxDeleteKoins)
         Me.Controls.Add(Me.CheckBoxDeleteSneeksinWheels)
         Me.Controls.Add(Me.CheckBoxDeleteBobbingEllie)
         Me.Controls.Add(Me.CheckBoxReduceGimmicks)
@@ -315,4 +328,5 @@ Partial Class MainForm
     Friend WithEvents CheckBoxReduceGimmicks As CheckBox
     Friend WithEvents CheckBoxDeleteBobbingEllie As CheckBox
     Friend WithEvents CheckBoxDeleteSneeksinWheels As CheckBox
+    Friend WithEvents CheckBoxDeleteKoins As CheckBox
 End Class

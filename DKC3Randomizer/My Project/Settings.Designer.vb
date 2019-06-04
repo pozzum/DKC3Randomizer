@@ -245,6 +245,18 @@ Namespace My
                 Me("XMLLimitCount") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property RandomizeKoins() As Boolean
+            Get
+                Return CType(Me("RandomizeKoins"),Boolean)
+            End Get
+            Set
+                Me("RandomizeKoins") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

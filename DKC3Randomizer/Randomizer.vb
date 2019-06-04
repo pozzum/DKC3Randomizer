@@ -6,37 +6,42 @@ Public Class Randomizer
     Public Shared ActiveEnemyInformation As New EnemyInformation
     Public Shared ActiveLevelInformation As LevelInformation
     Public Shared Sub Initialize(Seed As Integer, AllowBosses As Boolean, AllowFriends As Boolean,
-                                 DeleteMurkyEllie As Boolean, DeleteBobbingEllie As Boolean, DeleteSneekyWheels As Boolean)
+                                 DeleteMurkyEllie As Boolean, DeleteBobbingEllie As Boolean, DeleteSneekyWheels As Boolean, RandomizeCoins As Boolean)
         Generator = New System.Random(Seed:=Seed)
         ActiveEnemyInformation = New EnemyInformation
-        ActiveEnemyInformation.Initialize(AllowBosses, AllowFriends)
+        ActiveEnemyInformation.Initialize(AllowBosses, AllowFriends, RandomizeCoins)
         ActiveLevelInformation = New LevelInformation
         ActiveLevelInformation.Initialize()
         If DeleteMurkyEllie Then ActiveLevelInformation.DeleteMurkyEllie()
         If DeleteBobbingEllie Then ActiveLevelInformation.DeleteBobbingEllie()
         If DeleteSneekyWheels Then ActiveLevelInformation.RandomizeWheels()
+        If RandomizeCoins Then ActiveLevelInformation.RandomizeKoins()
         For i As Integer = 0 To ActiveLevelInformation.FullSpawnList.Count - 1
             If ActiveLevelInformation.FullSpawnList(i).NewID = -1 Then
-                ActiveLevelInformation.FullSpawnList(i).NewID = GetNewEnemyID()
+                ActiveLevelInformation.FullSpawnList(i).NewID = GetNewEnemyID(ActiveLevelInformation.FullSpawnList(i))
             End If
         Next
     End Sub
-    Public Shared Function GetNewEnemyID(Optional WoodBarrelKillableReq As Boolean = False, Optional PlatformRequired As Boolean = False)
+    Public Shared Function GetNewEnemyID(PlacementLocation As LevelInformation.SpawnClass) 'Optional WoodBarrelKillableReq As Boolean = False, Optional PlatformRequired As Boolean = False)
         Dim TempRand As Integer = -1
         Dim IDRand As Integer = -1
         Do While IDRand = -1
             TempRand = Generator.Next(ActiveEnemyInformation.FullEnemyList.Count)
             If Not ActiveEnemyInformation.FullEnemyList(TempRand).Placeable Then
                 Continue Do
-                If WoodBarrelKillableReq AndAlso (ActiveEnemyInformation.FullEnemyList(TempRand).BarrellKillable = False) Then
-                    Continue Do
-                End If
-            End If
+            ElseIf PlacementLocation.WoodBarrelKillableReq AndAlso (ActiveEnemyInformation.FullEnemyList(TempRand).BarrellKillable = False) Then
+                Continue Do
+            ElseIf PlacementLocation.PlatformReq AndAlso (ActiveEnemyInformation.FullEnemyList(TempRand).JumpPlatform = False) Then
+                Continue Do
+            ElseIf PlacementLocation.WaterInLevel AndAlso (ActiveEnemyInformation.FullEnemyList(TempRand).Aquaphobic = True) Then
+                Continue Do
+            Else 'The ID works
                 IDRand = Generator.Next(ActiveEnemyInformation.FullEnemyList(TempRand).IDNum.Count)
                 Exit Do
+            End If
         Loop
-        Return ActiveEnemyInformation.FullEnemyList(TempRand).IDNum(IDRand)
         'TO DO Add in auto no krosshair sign..
+        Return ActiveEnemyInformation.FullEnemyList(TempRand).IDNum(IDRand)
     End Function
     Public Shared Function SaveRandoRom(BaseRomLocation As String, RandoRomLocation As String)
         If Not File.Exists(BaseRomLocation) Then

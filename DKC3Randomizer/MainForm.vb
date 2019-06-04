@@ -48,15 +48,29 @@ Public Class MainForm
         AdjustGimmicks()
     End Sub
 #End Region
+#Region "Rom File Select Buttons"
     Private Sub ButtonGetRomAndHash_Click(sender As Object, e As EventArgs) Handles ButtonGetRomAndHash.Click
         If Not My.Settings.RomFilePath = "" Then
             If File.Exists(My.Settings.RomFilePath) Then
                 OpenFileRom.InitialDirectory = Path.GetDirectoryName(My.Settings.RomFilePath)
+                OpenFileRom.FileName = "Donkey Kong Country 3.smc"
             End If
         End If
         If OpenFileRom.ShowDialog = System.Windows.Forms.DialogResult.OK Then
             TextBoxRomLocation.Text = OpenFileRom.FileName
             CheckVersion()
+        End If
+    End Sub
+    Private Sub ButtonSetRandomizedRomLocation_Click(sender As Object, e As EventArgs) Handles ButtonSetRandomizedRomLocation.Click
+        If Not My.Settings.RandoRomFilePath = "" Then
+            If File.Exists(My.Settings.RandoRomFilePath) Then
+                OpenFileRom.InitialDirectory = Path.GetDirectoryName(My.Settings.RandoRomFilePath)
+                OpenFileRom.FileName = Path.GetFileName(My.Settings.RandoRomFilePath)
+            End If
+        End If
+        If OpenFileRom.ShowDialog = System.Windows.Forms.DialogResult.OK Then
+            My.Settings.RandoRomFilePath = OpenFileRom.FileName
+            TextBoxRandomizedRomLocation.Text = OpenFileRom.FileName
         End If
     End Sub
     Private Sub CheckVersion()
@@ -81,6 +95,7 @@ Public Class MainForm
             ButtonSetRandomizedRomLocation.Enabled = True
         End If
     End Sub
+#End Region
     Private Sub ButtonRandomSeed_Click(sender As Object, e As EventArgs) Handles ButtonRandomSeed.Click
         TextBoxSeed.Text = GetRandomNumber().ToString
     End Sub
@@ -140,8 +155,9 @@ Public Class MainForm
         My.Settings.DeleteMurkyEllie = CheckBoxDeleteMurkyEllie.Checked
         My.Settings.DeleteBobbingEllie = CheckBoxDeleteBobbingEllie.Checked
         My.Settings.DeleteSneekyWheels = CheckBoxDeleteSneeksinWheels.Checked
+        My.Settings.RandomizeKoins = CheckBoxDeleteKoins.Checked
         Randomizer.Initialize(CInt(TextBoxSeed.Text), CheckBoxAllowBosses.Checked, CheckBoxAllowFriends.Checked,
-                              CheckBoxDeleteMurkyEllie.Checked, CheckBoxDeleteBobbingEllie.Checked, CheckBoxDeleteSneeksinWheels.Checked)
+                              CheckBoxDeleteMurkyEllie.Checked, CheckBoxDeleteBobbingEllie.Checked, CheckBoxDeleteSneeksinWheels.Checked, CheckBoxDeleteKoins.Checked)
         Return True
     End Function
     Private Sub ButtonRandomizeRom_Click(sender As Object, e As EventArgs) Handles ButtonRandomizeRom.Click
@@ -161,17 +177,19 @@ Public Class MainForm
     End Sub
     Private Sub AdjustGimmicks()
         If CheckBoxReduceGimmicks.CheckState = System.Windows.Forms.CheckState.Indeterminate Then
-            Me.Height = 335
+            Me.Height = 360
         ElseIf CheckBoxReduceGimmicks.CheckState = System.Windows.Forms.CheckState.Checked Then
             Me.Height = 265
             CheckBoxDeleteMurkyEllie.Checked = True
             CheckBoxDeleteBobbingEllie.Checked = True
             CheckBoxDeleteSneeksinWheels.Checked = True
+            CheckBoxDeleteKoins.Checked = True
         Else 'not checked
             Me.Height = 265
             CheckBoxDeleteMurkyEllie.Checked = False
             CheckBoxDeleteBobbingEllie.Checked = False
             CheckBoxDeleteSneeksinWheels.Checked = False
+            CheckBoxDeleteKoins.Checked = False
         End If
     End Sub
     Private Sub CheckBoxReduceGimmicks_CheckStateChanged(sender As Object, e As EventArgs) Handles CheckBoxReduceGimmicks.CheckStateChanged
